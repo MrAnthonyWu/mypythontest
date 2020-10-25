@@ -1,0 +1,204 @@
+<!DOCTYPE document SYSTEM "rml.dtd"> 
+<document filename="my_invoice_test.pdf">
+	<docinit>
+		<color id="orange1" CMYK="0,0.6,1,0"/>
+		<color id="orange2" CMYK="0,0.75,1,0"/>
+		<color id="orange3" CMYK="0,0.38,0.95,0"/>
+		<color id="yellow1" CMYK="0,0.21,1,0"/>
+		<color id="howtopayBG" CMYK="0,0,0,0.05"/>
+	</docinit>
+	<template>
+		<pageTemplate id="main">
+			<pageGraphics>
+				<image file="images/GE_OriginLogo.jpg" x="6.9in" y="10.1in" width="0.866in" height="1.236in"/>
+				<image file="images/GE_Icon_PowerIcon_Gas.png" x="3.7in" y="20.15cm" width="0.61in" height="0.61in"/>
+				<place x="55" y="530" width="200" height="170">
+					<blockTable style="addressstyle1">
+						<tr>
+							<td>MR TARANDEEP NANDA</td>
+						</tr>
+						<tr>
+							<td>23 CORNELL AVE</td>
+						</tr>
+						<tr>
+							<td>VALLEY VIEW SA 5093</td>
+						</tr>
+					</blockTable>
+				</place>
+				<fill color="howtopayBG"/>
+				<rect x="40" y="50" width="7.2in" height="2.178in" fill="yes" stroke="no"/>
+				<rect x="40" y="7.4cm" width="7.2in" height="2cm" fill="yes" stroke="no"/>
+				<image file="images/GI_Icon_RemittanceDirectDebitOrange.png" x="42" y="164" width="0.333in" height="0.333in"/>
+				<image file="images/GI_Icon_RemittanceCreditCardOrange.png" x="42" y="104" width="0.333in" height="0.333in"/>
+				<image file="images/GI_Icon_RemittanceMailOrange.png" x="235" y="164" width="0.333in" height="0.333in"/>
+				<image file="images/GI_Icon_AusPostBillPay.gif" x="228" y="100" width="0.43in" height="0.253in"/>
+				<image file="images/GI_Icon_RemittanceBPay.png" x="393" y="157" width="0.3in" height="0.433in"/>
+			</pageGraphics>
+			<frame id="invoiceHeader" x1="42" y1="19.8cm" width="3.2in" height="1.05cm"/>
+			<frame id="box1" x1="42" y1="14.8cm" width="5.9cm" height="4.9cm"/>
+			<frame id="box2" x1="7.6cm" y1="14.8cm" width="5.9cm" height="4.9cm"/>
+			<frame id="box3" x1="13.75cm" y1="14.8cm" width="5.9cm" height="4.9cm"/>
+			<frame id="box4" x1="42" y1="9.7cm" width="12cm" height="4.9cm"/>
+			<frame id="box5" x1="13.75cm" y1="9.7cm" width="5.9cm" height="4.9cm"/>
+			<frame id="how2payHeader" x1="42" y1="160" width="3.2in" height="0.6in"/>	
+			<frame id="DirectDebit" x1="68" y1="115" width="2.3in" height="1in"/>	
+			<frame id="CreditCard" x1="68" y1="56" width="2.3in" height="1in"/>
+			<frame id="Post" x1="261" y1="100" width="1.8in" height="1.2in"/>
+			<frame id="InPerson" x1="261" y1="33" width="1.8in" height="1.2in"/>
+			<frame id="BPay" x1="418" y1="14" width="1.7in" height="2.4in"/>
+		</pageTemplate>
+	</template>
+	<stylesheet>
+		<blockTableStyle id="addressstyle1">
+			<blockFont name="Helvetica" size="9"/>
+		</blockTableStyle>
+		<blockTableStyle id="accountDetailsTS">
+			<lineStyle kind="BOX" colorName="orange2" thickness="1" start="0,0" stop="-1,-1" />
+			<blockFont name="Helvetica" size="8"/>
+		</blockTableStyle>
+		<blockTableStyle id="box2TS">
+			<lineStyle kind="BOX" colorName="orange1" thickness="1" start="0,0" stop="-1,-1" />
+			<blockFont name="Helvetica" size="8"/>
+		</blockTableStyle>
+		<blockTableStyle id="box3TS">
+			<lineStyle kind="BOX" colorName="orange3" thickness="1" start="0,0" stop="-1,-1" />
+			<blockFont name="Helvetica" size="8"/>
+		</blockTableStyle>
+		<blockTableStyle id="box4TS">
+			<lineStyle kind="BOX" colorName="yellow1" thickness="1" start="0,0" stop="-1,-1" />
+			<blockFont name="Helvetica" size="8"/>
+		</blockTableStyle>
+		<paraStyle name="how2payHeaderStyle" textColor="orange1"/>
+		<paraStyle name="how2payDetails" alignment="LEFT" fontSize="8"/>
+		<paraStyle name="invoiceHeaderStyle" textColor="orange1" fontSize="16" spaceAfter="0.2 cm"/>
+		<paraStyle name="normalStyle" textColor="black" fontSize="8"/>
+		<paraStyle name="boxHeaderStyle" textColor="white" fontSize="11"/>
+	</stylesheet>
+	<story>
+		<keepInFrame frame="invoiceHeader" onOverflow="shrink">
+			<para style="invoiceHeaderStyle"><b>Your natural gas bill</b></para>
+			<para style="normalStyle">23 CORNELL AVE VALLEY VIEW SA 5093</para>
+		</keepInFrame>
+		<keepInFrame frame="box1" onOverflow="shrink">
+			<blockTable style="accountDetailsTS" rowHeights="0.8cm,0.5cm,0.4cm,0.5cm,0.4cm,0.5cm,0.4cm,0.5cm,0.4cm,0.5cm" colWidths="5.9cm">
+				<tr>
+					<td fontSize="11" fontColor="white" background="orange2" vAlign="top"><para style="boxHeaderStyle"><b>YOUR ACCOUNT DETAILS</b></para></td>
+				</tr>
+				<tr>
+					<td vAlign="bottom"><para><b>Account number</b></para></td>
+				</tr>
+				<tr>
+					<td>500 013 348 775</td>
+				</tr>
+				<tr>
+					<td vAlign="bottom"><para><b>Tax invoice</b></para></td>
+				</tr>
+				<tr>
+					<td>142 001 569 522</td>
+				</tr>
+				<tr>
+					<td vAlign="bottom"><para><b>Issue date</b></para></td>
+				</tr>
+				<tr>
+					<td>9 Jul 20</td>
+				</tr>
+				<tr>
+					<td vAlign="bottom"><para><b>Total amount due</b></para></td>
+				</tr>
+				<tr>
+					<td>See the Account Summary on page 2</td>
+				</tr>
+				<tr>
+					<td></td>
+				</tr>
+			</blockTable>
+		</keepInFrame>
+		<keepInFrame frame="box2" onOverflow="shrink">
+			<blockTable style="box2TS" rowHeights="0.8cm,0.8cm,0.6cm,2.7cm" colWidths="5.9cm">
+				<tr>
+					<td fontSize="11" fontColor="white" background="orange1" vAlign="top"><para style="boxHeaderStyle"><b>DUE DATE</b></para></td>
+				</tr>
+				<tr>
+					<td fontSize="14" vAlign="middle"><para><b>23 Jul 20</b></para></td>
+				</tr>
+				<tr>
+					<td vAlign="bottom"><para><b>DIRECT DEBIT:</b> 23 Jul 20</para></td>
+				</tr>
+				<tr>
+					<td></td>
+				</tr>
+			</blockTable>
+		</keepInFrame>
+		<keepInFrame frame="box3" onOverflow="shrink">
+			<blockTable style="box3TS" rowHeights="0.8cm,0.8cm,0.6cm,2.7cm" colWidths="5.9cm">
+				<tr>
+					<td fontSize="11" fontColor="white" background="orange3" vAlign="top"><para style="boxHeaderStyle"><b>AMOUNT DUE</b></para></td>
+				</tr>
+				<tr>
+					<td fontSize="14" vAlign="middle">$259.60</td>
+				</tr>
+				<tr>
+					<td vAlign="bottom">includes $28.55 pay on time discount</td>
+				</tr>
+				<tr>
+					<td></td>
+				</tr>
+			</blockTable>
+		</keepInFrame>
+		<keepInFrame frame="box4" onOverflow="shrink">
+			<blockTable style="box4TS" rowHeights="0.8cm,4.1cm" colWidths="12cm">
+				<tr>
+					<td fontSize="11" fontColor="white" background="yellow1" vAlign="top"><para style="boxHeaderStyle"><b>YOUR USAGE SUMMARY</b></para></td>
+				</tr>
+				<tr>
+					<td></td>
+				</tr>
+			</blockTable>
+		</keepInFrame>		
+		<keepInFrame frame="box5" onOverflow="shrink">
+			<blockTable style="box4TS" rowHeights="0.8cm,4.1cm" colWidths="5.9cm">
+				<tr>
+					<td fontSize="11" fontColor="white" background="yellow1" vAlign="top"><para style="boxHeaderStyle"><b>YOUR ENERGY PLAN</b></para></td>
+				</tr>
+				<tr>
+					<td></td>
+				</tr>
+			</blockTable>
+		</keepInFrame>	
+		<keepInFrame frame="how2payHeader" onOverflow="shrink">
+			<para style="how2payHeaderStyle">HOW TO PAY</para>
+		</keepInFrame>
+		<keepInFrame frame="DirectDebit" onOverflow="shrink">
+			<para style="how2payDetails"><b>DIRECT DEBIT</b></para>
+			<para style="how2payDetails">Register online at originenergy.com.au/
+myaccount or call 13 24 61 to arrange
+automatic payment of future accounts*</para>
+		</keepInFrame>
+		<keepInFrame frame="CreditCard" onOverflow="shrink">
+			<para style="how2payDetails"><b>VISA OR MASTERCARD</b></para>
+			<para style="how2payDetails">Call <b>1300 658 783</b> or visit
+<b>originenergy.com.au/paynow</b></para>
+		</keepInFrame>
+		<keepInFrame frame="Post" onOverflow="shrink">
+			<para style="how2payDetails"><b>MAIL</b></para>
+			<para style="how2payDetails">Send this slip with your cheque
+made payable to: Origin Energy
+Holdings Limited, GPO Box 2951
+SYDNEY NSW 2001</para>
+		</keepInFrame>
+		<keepInFrame frame="InPerson" onOverflow="shrink">
+			<para style="how2payDetails"><b>IN PERSON</b></para>
+			<para style="how2payDetails">Pay at any Post Office+*</para>
+		</keepInFrame>
+		<keepInFrame frame="BPay" onOverflow="shrink">
+			<para style="how2payDetails"><b>TELEPHONE &amp; INTERNET
+BANKING - BPAY®</b></para>
+			<para style="how2payDetails">Contact your bank or financial
+institution to make this
+payment from your cheque,
+savings, debit, credit card* or
+transaction account.
+More info: <b>www.bpay.com.au</b></para>
+		</keepInFrame>
+		</story>
+</document>
